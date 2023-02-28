@@ -1,5 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -14,7 +15,22 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-center text-4xl">Job Board</h1>
+        <video
+          src="/assets/work.mp4"
+          muted
+          autoPlay
+          className="h-screen w-screen object-cover opacity-70"
+        />
+        <div className="fixed top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-col justify-center gap-6">
+          <Link href={"/employee"}>
+            <button className="w-96 rounded-lg bg-teal-400 py-4 px-2 font-semibold hover:bg-teal-600">
+              Looking for your next career?
+            </button>
+          </Link>
+          <button className="w-96 rounded-lg bg-teal-400 py-4 px-2 font-semibold hover:bg-teal-600">
+            Looking for you next great employee?
+          </button>
+        </div>
       </main>
     </>
   );
