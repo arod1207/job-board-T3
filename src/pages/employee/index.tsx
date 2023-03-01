@@ -23,7 +23,7 @@ export default function Home() {
             </p>
             <Link href="/employee/register">
               <button className="border-1 mt-10 rounded-lg border border-black py-2 px-4 text-sm">
-                Sign up for free
+                SIGN IN
               </button>
             </Link>
           </div>
