@@ -7,7 +7,7 @@ import {
 } from "~/server/api/trpc";
 
 export const employeeRouter = createTRPCRouter({
-  addUser: publicProcedure
+  createProfile: protectedProcedure
     .input(
       z.object({
         firstName: z.string(),
@@ -23,7 +23,7 @@ export const employeeRouter = createTRPCRouter({
           address: input.address,
           user: {
             connect: {
-              id: ctx.session?.user.id,
+              id: ctx.session.user.id,
             },
           },
         },
