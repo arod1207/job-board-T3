@@ -2,7 +2,13 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 import Link from "next/link";
 
-export default function Navbar() {
+type NavbarProps = {
+  type: string;
+  signInInPath: string;
+  signOutPath: string;
+};
+
+export default function Navbar({ signInInPath, signOutPath }: NavbarProps) {
   const { data: userSession } = useSession();
 
   return (
@@ -21,7 +27,7 @@ export default function Navbar() {
           {userSession ? (
             <button
               className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
-              onClick={() => signOut({ callbackUrl: "/employer" })}
+              onClick={() => signOut({ callbackUrl: `${signOutPath}` })}
             >
               SIGN OUT
             </button>
@@ -29,7 +35,7 @@ export default function Navbar() {
             <button
               className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
               onClick={() =>
-                signIn(undefined, { callbackUrl: "/employer/dashboard" })
+                signIn(undefined, { callbackUrl: `${signInInPath}` })
               }
             >
               SIGN IN

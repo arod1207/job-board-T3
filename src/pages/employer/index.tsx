@@ -15,7 +15,11 @@ export default function Employer() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        type={"employer"}
+        signInInPath={"/employer/dashboard"}
+        signOutPath={"/employer"}
+      />
       <div className="flex h-screen items-center justify-center px-6">
         <div className="flex w-3/4 space-x-6">
           <img
@@ -31,7 +35,7 @@ export default function Employer() {
               eius, sapiente repellendus esse, illo, at quaerat? Maxime adipisci
               a quis rerum iure.
             </p>
-            <Link href="/">
+            <Link href="">
               <button
                 className="border-1 mt-10 rounded-lg border border-black py-2 px-4 text-sm"
                 onClick={() => signIn()}

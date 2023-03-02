@@ -16,7 +16,7 @@ export const employerRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.jobPosting.create({
+      return await ctx.prisma.post.create({
         data: {
           company: input.company,
           title: input.title,

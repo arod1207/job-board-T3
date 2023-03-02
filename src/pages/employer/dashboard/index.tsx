@@ -32,7 +32,11 @@ export default function Dashboard() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        type={"employer"}
+        signInInPath={"/employer/dashboard"}
+        signOutPath={"/employer"}
+      />
       <div className="mt-10">
         <h1 className="text-center text-6xl">Post a job</h1>
         <div>
