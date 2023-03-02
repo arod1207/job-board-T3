@@ -9,17 +9,11 @@ import Navbar from "~/components/Navbar";
 export default function Employer() {
   const { data: userSession } = useSession();
 
-  console.log(userSession);
-
   const router = useRouter();
 
   return (
     <>
-      <Navbar
-        type={"employer"}
-        signInInPath={"/employer/dashboard"}
-        signOutPath={"/employer"}
-      />
+      <Navbar type={"employer"} signInInPath={"/employer/dashboard"} />
       <div className="flex h-screen items-center justify-center px-6">
         <div className="flex w-3/4 space-x-6">
           <img
@@ -35,14 +29,6 @@ export default function Employer() {
               eius, sapiente repellendus esse, illo, at quaerat? Maxime adipisci
               a quis rerum iure.
             </p>
-            <Link href="">
-              <button
-                className="border-1 mt-10 rounded-lg border border-black py-2 px-4 text-sm"
-                onClick={() => signIn()}
-              >
-                SIGN IN
-              </button>
-            </Link>
           </div>
         </div>
       </div>

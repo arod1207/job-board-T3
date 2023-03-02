@@ -1,15 +1,24 @@
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 //Components//
 import Navbar from "~/components/Navbar";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { data: userSession } = useSession();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (userSession) {
+      router.push("/employee/dashboard");
+    }
+  }, []);
+
   return (
     <>
-      <Navbar
-        type={"employee"}
-        signInInPath={"/employee/dashboard"}
-        signOutPath={"/employee"}
-      />
+      <Navbar type={"employee"} signInInPath={"/employee/dashboard"} />
       <div className="flex h-screen items-center justify-center px-6">
         <div className="flex w-3/4 space-x-6">
           <img
@@ -25,11 +34,6 @@ export default function Home() {
               eius, sapiente repellendus esse, illo, at quaerat? Maxime adipisci
               a quis rerum iure.
             </p>
-            <Link href="">
-              <button className="border-1 mt-10 rounded-lg border border-black py-2 px-4 text-sm">
-                SIGN IN
-              </button>
-            </Link>
           </div>
         </div>
       </div>

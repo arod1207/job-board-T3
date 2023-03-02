@@ -5,10 +5,9 @@ import Link from "next/link";
 type NavbarProps = {
   type: string;
   signInInPath: string;
-  signOutPath: string;
 };
 
-export default function Navbar({ signInInPath, signOutPath }: NavbarProps) {
+export default function Navbar({ signInInPath }: NavbarProps) {
   const { data: userSession } = useSession();
 
   return (
@@ -23,25 +22,23 @@ export default function Navbar({ signInInPath, signOutPath }: NavbarProps) {
           />
         )}
 
-        <Link href="/">
-          {userSession ? (
-            <button
-              className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
-              onClick={() => signOut({ callbackUrl: `${signOutPath}` })}
-            >
-              SIGN OUT
-            </button>
-          ) : (
-            <button
-              className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
-              onClick={() =>
-                signIn(undefined, { callbackUrl: `${signInInPath}` })
-              }
-            >
-              SIGN IN
-            </button>
-          )}
-        </Link>
+        {userSession ? (
+          <button
+            className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
+            onClick={() => signOut({ callbackUrl: "/" })}
+          >
+            SIGN OUT
+          </button>
+        ) : (
+          <button
+            className="border-1 rounded-lg border border-black py-2 px-4 text-sm"
+            onClick={() =>
+              signIn(undefined, { callbackUrl: `${signInInPath}` })
+            }
+          >
+            SIGN IN
+          </button>
+        )}
       </div>
     </div>
   );
