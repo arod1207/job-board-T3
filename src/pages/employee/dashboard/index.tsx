@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import Moment from "react-moment";
 //Components//
 import Navbar from "~/components/Navbar";
 //TRPC//
@@ -11,11 +11,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Navbar
-        type={"employee"}
-        signInInPath={"/employee/dashboard"}
-        signOutPath={"/employee"}
-      />
+      <Navbar type={"employee"} signInInPath={"/employee/dashboard"} />
       <div className="mt-10">
         <h1 className="text-center text-6xl">Recent jobs added</h1>
         <div className="mt-10 flex justify-center">
@@ -25,7 +21,13 @@ export default function Dashboard() {
               className="border-1 w-1/2 rounded-lg border border-black py-2 px-2 shadow-md"
             >
               <div className="flex max-h-96 flex-col gap-1 overflow-scroll ">
-                <h3 className="text-2xl font-semibold">{post.title}</h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-semibold">{post.title}</h3>
+                  <h5 className="text-xs text-gray-400">
+                    Added {""}
+                    <Moment fromNow>{post.createdAt}</Moment>
+                  </h5>
+                </div>
                 <h1 className="text-xl">{post.company}</h1>
                 <p className="">{post.description}</p>
               </div>
