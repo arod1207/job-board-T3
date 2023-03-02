@@ -19,17 +19,19 @@ const Home: NextPage = () => {
           src="/assets/work.mp4"
           muted
           autoPlay
-          className="h-screen w-screen object-cover opacity-70"
+          className="h-screen w-screen object-cover  grayscale"
         />
         <div className="fixed top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-col justify-center gap-6">
           <Link href={"/employee"}>
-            <button className="w-96 rounded-lg bg-teal-400 py-4 px-2 font-semibold hover:bg-teal-600">
+            <button className="w-96 rounded-lg bg-white py-6 px-2 text-xl font-semibold hover:opacity-70">
               Looking for your next career?
             </button>
           </Link>
-          <button className="w-96 rounded-lg bg-teal-400 py-4 px-2 font-semibold hover:bg-teal-600">
-            Looking for you next great employee?
-          </button>
+          <Link href="/employer">
+            <button className="w-96 rounded-lg bg-white py-6 px-2 text-xl font-semibold hover:opacity-70">
+              Looking for you next great employee?
+            </button>
+          </Link>
         </div>
       </main>
     </>
