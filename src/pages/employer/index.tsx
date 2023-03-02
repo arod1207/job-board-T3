@@ -1,7 +1,6 @@
-import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 //Components//
 import Navbar from "~/components/Navbar";
@@ -10,6 +9,12 @@ export default function Employer() {
   const { data: userSession } = useSession();
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (userSession) {
+      router.push("/employee/dashboard");
+    }
+  }, []);
 
   return (
     <>
